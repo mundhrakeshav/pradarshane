@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { PortisContext } from "../context/web3PortisContext";
 
 function SecendaryNavBar() {
@@ -12,13 +13,20 @@ function SecendaryNavBar() {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#">Create Token</Nav.Link>
+          <Link to="/createTokenPage">
+            <Button variant="dark">Create Token</Button>
+          </Link>
         </Nav>
+
         <Nav className="ml-auto">
           <Nav.Link>Market Place</Nav.Link>
           <Nav.Link href="#">Sell</Nav.Link>
           <Nav.Link href="#">Explore</Nav.Link>
-          <Nav.Link href="#">Profile</Nav.Link>
+          <Link to="/profilePage">
+            <Button variant="secondary" size="sm">
+              Profile
+            </Button>{" "}
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

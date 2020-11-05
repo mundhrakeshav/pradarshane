@@ -9,7 +9,7 @@ const web3 = new Web3(portis.provider);
 
 export const PortisContext = createContext();
 
-const web3PortisContextProvider = (props) => {
+const Web3PortisContextProvider = (props) => {
   return (
     <PortisContext.Provider value={{ portis, web3 }}>
       {props.children}
@@ -17,4 +17,4 @@ const web3PortisContextProvider = (props) => {
   );
 };
 
-export default web3PortisContextProvider;
+export default Web3PortisContextProvider;

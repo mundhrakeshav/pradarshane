@@ -11,7 +11,7 @@ function AppBar() {
 
       setAddress(accounts[0]);
     });
-  });
+  }, []);
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="#home">प्रदर्शनी</Navbar.Brand>

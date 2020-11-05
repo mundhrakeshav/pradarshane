@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import Web3PortisContext from "./context/web3PortisContext";
+import Web3PortisContextProvider from "./context/web3PortisContext";
+import ContractsContextProvider from "./context/contractsContext";
 
 ReactDOM.render(
-  <Web3PortisContext>
-    <App />
-  </Web3PortisContext>,
+  <Web3PortisContextProvider>
+    <ContractsContextProvider>
+      <App />
+    </ContractsContextProvider>
+  </Web3PortisContextProvider>,
   document.getElementById("root")
 );
