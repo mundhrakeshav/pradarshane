@@ -8,11 +8,20 @@ contract ERC721TransferableOwnable{
     
     address public contractOwner;
     
+    struct TokenMetaData{
+     string tokenUniqueName;
+     string ipfsHash;
+     uint tokenPriceUSD;
+    }    
+    
+    
     mapping(address => uint) private balances;
     mapping(uint256 => address) private tokenOwners;
     mapping(uint256 => bool) private tokenExists;
     mapping(address => mapping (address => uint256)) allowed;
     mapping(address => mapping(uint256 => uint256)) private ownerTokens;
+    mapping(uint => TokenMetaData) private tokenData; 
+
     
     event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);
     event Transfer(address indexed _owner, address indexed _approved, uint256 _tokenId);
@@ -116,8 +125,10 @@ contract ERC721TransferableOwnable{
         emit Transfer(oldOwner, newOwner, _tokenId);
     }
      
-    function mintToken( address _to) public onlyOwner{
+    function mintToken(address _to, string memory _tokenName, string memory _ipfsHash, uint _tokenPriceUSD) public onlyOwner{
         _totalSupply++;
+        TokenMetaData memory _tokenData = TokenMetaData(_tokenName, _ipfsHash, _tokenPriceUSD);
+        tokenData[_totalSupply] = _tokenData;
         balances[_to] = balances[_to] + 1; 
         tokenOwners[_totalSupply] = _to;
         tokenExists[_totalSupply] = true;
