@@ -19,12 +19,21 @@ function SecendaryNavBar() {
         </Nav>
 
         <Nav className="ml-auto">
-          <Nav.Link>Market Place</Nav.Link>
+          <Link to="/marketPlace">
+            <Button variant="secondary" size="sm">
+              Market Place
+            </Button>
+          </Link>
           <Nav.Link href="#">Sell</Nav.Link>
           <Nav.Link href="#">Explore</Nav.Link>
           <Link to="/profilePage">
             <Button variant="secondary" size="sm">
-              Profile
+              Your Contracts
+            </Button>{" "}
+          </Link>
+          <Link to="/tokens">
+            <Button variant="dark" size="sm">
+              Your Tokens
             </Button>{" "}
           </Link>
         </Nav>

@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Row, Container, Col, Badge, Button, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ContractsContext } from "../context/contractsContext";
 import { PortisContext } from "../context/web3PortisContext";
 import "./profilePage.css";
@@ -106,13 +107,17 @@ const TransferableTokenListItem = (props) => {
     setTokenName(_name);
     setTokenSymbol(_symbol);
   }, []);
+  const _to = `/transferableTokenMint/${props.address}`;
+
   return (
     <>
       <Row>
         <Col>{tokenSymbol}</Col>
         <Col>{tokenName}</Col>
         <Col>{props.address}</Col>
-        <Button onClick={() => {}}>View</Button>
+        <Link to={_to}>
+          <Button>Mint</Button>
+        </Link>
       </Row>
       <br />
     </>
@@ -133,13 +138,17 @@ const TransferableOwnableTokenListItem = (props) => {
     setTokenName(_name);
     setTokenSymbol(_symbol);
   }, []);
+  const _to = `/transferableOwnableTokenMint/${props.address}`;
+
   return (
     <>
       <Row>
         <Col>{tokenSymbol}</Col>
         <Col>{tokenName}</Col>
         <Col>{props.address}</Col>
-        <Button onClick={() => {}}>View</Button>
+        <Link to={_to}>
+          <Button>Mint</Button>
+        </Link>
       </Row>
       <br />
     </>
@@ -160,13 +169,16 @@ const NonTransferableTokenListItem = (props) => {
     setTokenName(_name);
     setTokenSymbol(_symbol);
   }, []);
+  const _to = `/nonTransferableTokenMint/${props.address}`;
   return (
     <>
       <Row>
         <Col>{tokenSymbol}</Col>
         <Col>{tokenName}</Col>
         <Col>{props.address}</Col>
-        <Button onClick={() => {}}>View</Button>
+        <Link to={_to}>
+          <Button>Mint</Button>
+        </Link>
       </Row>
       <br />
     </>

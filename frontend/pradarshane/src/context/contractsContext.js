@@ -46,7 +46,7 @@ const ContractsContextProvider = (props) => {
   const getNFTFactoryContract = async () => {
     const nftContract = new web3.eth.Contract(
       nftFactoryAbi,
-      "0x7CCE2327EE63195D0a6a8558139c0C1C113fdA0f"
+      "0x33c17133655F6bBA4393B41827A1b97D7386c372"
     );
     nftContract.setProvider(portis.provider);
     // console.log(newContract.methods);
